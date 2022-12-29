@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      
+
+  <script>
+  function multiplyMatrices() {
+  var rowsA = prompt("Enter the number of rows in matrix A:");
+  var columnsA = prompt("Enter the number of columns in matrix A:");
+  var rowsB = prompt("Enter the number of rows in matrix B:");
+  var columnsB = prompt("Enter the number of columns in matrix B:");
+
+  if (columnsA != rowsB) {
+    alert("Cannot multiply matrices the number of columns in matrix A must be equal to the number of rows in matrix B.");
+    return;
+  }
+
+  var matrixA = create_matrix(rowsA, columnsA);
+  var matrixB = create_matrix(rowsB, columnsB);
+  var matrixC = multiply(matrixA, matrixB);
+
+  document.write("Matrix A is:")
+  for(var a=0;a<rowsA;a++){
+  document.write("<br> " + matrixA[a] +"");
+  }
+
+  document.write("<br>Matrix B is:")
+  for(var b=0;b<rowsA;b++){
+  document.write("<br> " + matrixB[b] +"");
+  }
+
+  document.write("<br>After Multiplication Matrix is:")
+  for(var q=0;q<rowsA;q++){
+  document.write("<br> " + matrixC[q] +"");
+  }
+
+}
+
+function create_matrix(rows, columns) {
+  var matrix = [];
+  for (var i = 0; i < rows; i++) {
+    matrix[i] = [];
+    for (var j = 0; j < columns; j++) {
+      matrix[i][j] = prompt(`Enter number for element at row ${i} and column ${j}`);
+    }
+  }
+  return matrix;
+}
+
+function multiply(matrixA, matrixB) {
+  var matrixC = [];
+  for (var i = 0; i < matrixA.length; i++) {
+    matrixC[i] = [];
+    for (var j = 0; j < matrixB.length; j++) {
+      matrixC[i][j] = 0;
+      for (var k = 0; k < matrixA.length; k++) {
+        matrixC[i][j] += matrixA[i][k] * matrixB[k][j];
+      }
+    }
+  }
+  return matrixC;
+}
+
+multiplyMatrices();
+
+
+  </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
